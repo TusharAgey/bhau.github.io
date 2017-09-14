@@ -1,0 +1,56 @@
+.parent-float-div {
+	width : 100%;
+	height : auto;
+	margin : auto;
+}
+
+.float-div {
+	display : inline-block;
+	width : 30%;
+	min-width : 300px;
+	height : auto;
+	padding : 12px;
+	margin : 0 auto;
+}
+
+.float-div img {
+	position : absolute;
+	top : 30%;
+	left : 25%;
+	border : 8px solid white;
+	z-index : 1;
+	display : inline-block;
+	width : 50%;
+}
+
+.top-div {
+	width : 100%;
+	height : 120px;
+	border-radius : 10px 10px 0px 0px;
+	box-shadow: -1px -5px 8px -1px rgba(140,140,140,0.62);
+	position : relative;
+	z-index : 0;
+}
+
+.bottom-div {
+	width : 100%;
+	height : 270px;
+	border-radius : 0px 0px 10px 10px;
+	box-shadow: -1px 5px 8px -1px rgba(140,140,140,0.62);
+}
+
+.color1 {
+	background-color : #4db6ac;
+}
+
+.color2 {
+	background-color : #64b5f6;
+}
+
+.color3 {
+	background-color : #9575cd;
+}
+
+.line {
+	margin : 5px 30px;
+}
