@@ -27,6 +27,7 @@
 
 <body class="index-page">
 <!-- Navbar -->
+
 <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
 	<div class="container">
         <div class="navbar-header">
@@ -52,29 +53,30 @@
 
 	    <div class="collapse navbar-collapse" id="navigation-index">
 	    	<ul class="nav navbar-nav navbar-right">
+	    		<li>
+	    			<a href="#home"> Home </a>
+	    		</li>
+	    		<li>
+	    			<a href="#carousel"> Bhau Team </a>
+	    		</li>
+	    		<li>
+	    			<a href="#contactUs"> Contact Us </a>
+	    		</li>
+	    		<li>
+	    			<a href="login.php"> Login </a>
+	    		</li>
 				<li>
-					<a rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/bhau" target="_blank" class="btn btn-white btn-simple btn-just-icon">
-						<i class="fa fa-twitter"></i>
-					</a>
-				</li>
-				<li>
-					<a rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/bhau" target="_blank" class="btn btn-white btn-simple btn-just-icon">
+					<a rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/coep.bhau/" target="_blank" class="btn btn-white btn-simple btn-just-icon">
 						<i class="fa fa-facebook-square"></i>
 					</a>
 				</li>
-				<li>
-					<a rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/bhau" target="_blank" class="btn btn-white btn-simple btn-just-icon">
-						<i class="fa fa-instagram"></i>
-					</a>
-				</li>
-
 	    	</ul>
 	    </div>
 	</div>
 </nav>
 <!-- End Navbar -->
 
-<div class="wrapper">
+<div id="home" class="wrapper">
 	<div class="header header-filter" style="background-image: url('assets/img/bgx1.jpg');">
 		<div class="container">
 			<div class="row">
@@ -89,6 +91,63 @@
 	</div>
 	
 	<div class="main main-raised">
+<div class="section" id="carousel">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+
+						<div class="text-center">
+							<h2>BHAU Team Members</h2>
+						</div>
+						<div class="card card-raised card-carousel">
+							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+								<div class="carousel slide" data-ride="carousel">
+
+									<ol class="carousel-indicators">
+										<li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+										<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+										<li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
+									</ol>
+									<div class="carousel-inner">
+										<div class="item">
+											<img src="assets/img/bg2.jpeg" alt="Awesome Image">
+											<div class="carousel-caption">
+												<h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
+											</div>
+										</div>
+										<div class="item">
+											<img src="assets/img/bg3.jpeg" alt="Awesome Image">
+											<div class="carousel-caption">
+												<h4><i class="material-icons">location_on</i> Somewhere Beyond, United States</h4>
+											</div>
+										</div>
+										<div class="item active">
+											<img src="assets/img/bg4.jpeg" alt="Awesome Image">
+											<div class="carousel-caption">
+												<h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
+											</div>
+										</div>
+									</div>
+
+									<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+										<i class="material-icons">keyboard_arrow_left</i>
+									</a>
+									<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+										<i class="material-icons">keyboard_arrow_right</i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class = "row">
+			<div class="text-center">
+				<h2>Inauguration in</h2>
+		       <p id="myCountDownInaug"></p>
+		    </div>
+		</div>
 		<div class="section section-basic">
 	    	<div class="container">
 	    		<div id="images">
@@ -219,7 +278,14 @@
 					</div>
 				</div>
 	            
-
+<div class = "row" id="contactUs">
+	<div class="text-center">
+	<h2>Contact Us</h2>
+		
+			<i class="material-icons">email</i><h4>i2i@bhau.org<h4>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1891.484471151945!2d73.8576458971316!3d18.53030557499027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x40aefe804ecad857!2sBhau+Institute+of+Entrepreneurship+and+Leadership+-+Startup+Incubation+center+and+coworking+space!5e0!3m2!1sen!2sin!4v1505541379494" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>
+</div>
 <!--
 	            <div class="title">
 	                <h2>Basic Elements</h2>
@@ -1493,7 +1559,37 @@ Sart Modal
 
 </body>
 -->
- 
+			<!-- The countdown script for inaugration-->
+ 			<script>
+					// Set the date we're counting down to
+					var countDownDate = new Date("Sept 19, 2017 15:30:00").getTime();
+
+					// Update the count down every 1 second
+					var x = setInterval(function() {
+
+					  // Get todays date and time
+					  var now = new Date().getTime();
+
+					  // Find the distance between now an the count down date
+					  var distance = countDownDate - now;
+
+					  // Time calculations for days, hours, minutes and seconds
+					  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+					  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+					  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+					  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+					  // Display the result in the element with id="demo"
+					  var newHtml = "<ul class=\"pagination pagination-primary\">" + "<li class=\"active\"><a>" + days + " days </a></li> "+ "<li class=\"active\"><a>" + hours + " Hours </a></li> " + "<li class=\"active\"><a>" + minutes + " Minutes </a></li>" + "<li class=\"active\"><a>" + seconds + " seconds </a></li></ul> ";
+					  document.getElementById("myCountDownInaug").innerHTML = newHtml;
+
+					  // If the count down is finished, write some text
+					  if (distance < 0) {
+					    clearInterval(x);
+					    document.getElementById("myCountDownInaug").innerHTML = "The event time is reached";
+					  }
+					}, 1000);
+					</script>
 	<script src="assets/js/jquery.min.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="assets/js/material.min.js"></script>
