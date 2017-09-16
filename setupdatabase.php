@@ -11,21 +11,16 @@
 					`ID` BIGINT(3) NOT NULL AUTO_INCREMENT COMMENT 'index',
 					`userName` VARCHAR(200) NOT NULL COMMENT 'Name of the user',
 					`emailId` VARCHAR(200) NOT NULL COMMENT 'User Id for login',
-					`userPass` VARCHAR(200) NOT NULL COMMENT 'md5 hash of the password',
-					`dateOfBirth` VARCHAR(200) NOT NULL COMMENT 'Date of birth',
-					`hobby` VARCHAR(200) NOT NULL COMMENT 'Hobby',
-					`address` VARCHAR(200) NOT NULL COMMENT 'Address',
+					`userPass` VARCHAR(200) NOT NULL COMMENT 'the password',
+					`projectName` VARCHAR(200)  COMMENT 'The name of the project',
+					`projectDesc` VARCHAR(2000)  COMMENT 'The description of the project',
+					`teamSize` VARCHAR(1)  COMMENT 'The Team size',
 					`phoneNumber` VARCHAR(200) NOT NULL COMMENT 'Phone Number',
 					`authority` BIGINT(1) NOT NULL COMMENT 'is authority',
 					PRIMARY KEY (`ID`)
 					) ENGINE = InnoDB";
 			$conn->query($sql);
 			echo $conn->error;
-			$sql = "INSERT INTO `UserTables` (userName, emailId, userPass, dateOfBirth, hobby, address, phoneNumber, authority) values ('Tushar', 'agey.tushar3@gmail.com', 'qwertyasd1@a', '06-12-1996', 'programming', 'keepsChanging', '7756804595', 0)";
-			$conn->query($sql);
-
-			$sql = "INSERT INTO `UserTables` (userName, emailId, userPass, dateOfBirth, hobby, address, phoneNumber, authority) values ('Eton', 'agey.tushar4@gmail.com', 'qwerty', '06-12-1996', 'programming', 'keepsChanging', '7756804595', 1)";
-			$conn->query($sql);
 
 			$sql = "CREATE TABLE IF NOT EXISTS `comments_table`(
 					`ID` BIGINT(3) NOT NULL AUTO_INCREMENT COMMENT 'index',

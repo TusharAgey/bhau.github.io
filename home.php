@@ -32,11 +32,16 @@
 	$authority = $_SESSION['authority'];
 	$user_name = $_SESSION['user_name'];
 	$phone	   = $_SESSION['contact_no'];
-	$uid 	   = $_SESSION['Iduser'];							
+	$uid 	   = $_SESSION['Iduser'];
+	if($authority == 0){
+		$projectName = $_SESSION['projectName'];
+		$projectDesc = $_SESSION['projectDesc'];
+		$teamSize	= $_SESSION['teamSize'];
+	}
 	if($user_name == "")
 		echo "<!--";
 ?>
-<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+<nav class="navbar  navbar-fixed-top">
 	<div class="container">
         <div class="navbar-header">
 	    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
@@ -68,56 +73,9 @@
 </nav>
 <div class="main main-raised">
 <div class="section" id="carousel">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-
-						<div class="text-center">
-							<h2>Welcome <?php echo $user_name; ?></h2>
-						</div>
-						<div class="card card-raised card-carousel">
-							<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-								<div class="carousel slide" data-ride="carousel">
-
-									<ol class="carousel-indicators">
-										<li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
-										<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-										<li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
-									</ol>
-									<div class="carousel-inner">
-										<div class="item">
-											<img src="assets/img/bg2.jpeg" alt="Awesome Image">
-											<div class="carousel-caption">
-												<h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
-											</div>
-										</div>
-										<div class="item">
-											<img src="assets/img/bg3.jpeg" alt="Awesome Image">
-											<div class="carousel-caption">
-												<h4><i class="material-icons">location_on</i> Somewhere Beyond, United States</h4>
-											</div>
-										</div>
-										<div class="item active">
-											<img src="assets/img/bg4.jpeg" alt="Awesome Image">
-											<div class="carousel-caption">
-												<h4><i class="material-icons">location_on</i> Yellowstone National Park, United States</h4>
-											</div>
-										</div>
-									</div>
-
-									<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-										<i class="material-icons">keyboard_arrow_left</i>
-									</a>
-									<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-										<i class="material-icons">keyboard_arrow_right</i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>	
+<div class="section" id="carousel">
+			
+				
 
 				<div class="text-center parent-float-div">
 					<h2>Post Updates here</h2>
@@ -126,16 +84,9 @@
 							if($authority == 0){
 								echo "<div>
 								<div class=\"top-div  color2\">
-									<img src=\"assets/img/default-avatar.png\" class=\"img-circle img-responsive\">
+									<h3>$projectName</h3>
+									<h5>$projectDesc</h5>
 								</div>
-									</br>
-									</br>
-									</br></br>
-									</br>
-									</br>
-									<h3>"; echo "Project name"; //extract project name, project link, contact number and show here
-									echo "</h3>
-
 									<p class=\"line\">";
 											include_once("sqlsettings.php");
 											$conn = new mysqli($host, $username, $pass, $db);
@@ -147,13 +98,13 @@
 											if(mysqli_num_rows($result) > 0){
 												while($row = mysqli_fetch_assoc($result)){
 													if($row['is_authority'] == 0){
-														echo "<ul class=\"pagination pagination-primary\"> <li class = \"active\"><a>";
+														echo "<ul class=\"pagination\"> <li class = \"active\"><a>";
 														echo "Me: ";
 														echo $row['comment_it'];
 														echo " </a></li>";
 													}
 													else{
-														echo "<ul class=\"pagination pagination-primary\"> <li class = \"active\"><a>";
+														echo "<ul class=\"pagination\"> <li class = \"active\"><a>";
 														echo "Mentor: ";
 														echo $row['comment_it'];
 														echo " </a></li>";
@@ -184,27 +135,30 @@
 								$sql = "SELECT * FROM UserTables where authority = 0";
 								$result = $conn->query($sql);
 								while($row = mysqli_fetch_assoc($result)){ //for each project 
-									echo "<div>
-										<div class=\"top-div  color2\">
-											<img src=\"assets/img/default-avatar.png\" class=\"img-circle img-responsive\">
-										</div>
-											</br></br></br></br></br></br>
-											<h3>"; echo "Project name"; //extract project name, project link, contact number and show here
-											echo "</h3><p class=\"line\">";
 											$identity = $row['ID'];
 											$sql = "SELECT * FROM comments_table where user_id = $identity";
 											$resultset = $conn->query($sql);
+											$projectName = $row['projectName'];
+											$projectDesc = $row['projectDesc'];
+											echo "<div>
+												<div class=\"top-div  color2\">
+													<h3>$projectName</h3>
+													<h5>$projectDesc</h5>
+												</div>
+												<p class=\"line\">";
 											$i = 0;
 											if(mysqli_num_rows($resultset) > 0){
 												while($rowset = mysqli_fetch_assoc($resultset)){
 													if($rowset['is_authority'] == 0){
-														echo "<ul class=\"pagination pagination-primary\"> <li class = \"active\"><a>";
-														echo "Me: ";
+														echo "<ul class=\"pagination\"> <li class = \"active\"><a>";
+
+														echo $row['userName'];
+														echo " : ";
 														echo $rowset['comment_it'];
 														echo " </a></li>";
 													}
 													else{
-														echo "<ul class=\"pagination pagination-primary\"> <li class = \"active\"><a>";
+														echo "<ul class=\"pagination\"> <li class = \"active\"><a>";
 														echo "Mentor: ";
 														echo $rowset['comment_it'];
 														echo " </a></li>";

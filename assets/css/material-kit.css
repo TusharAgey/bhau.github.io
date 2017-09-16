@@ -1807,7 +1807,6 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   color: #999999;
   font-weight: 400;
   font-size: 12px;
-  text-transform: uppercase;
   background: transparent;
 }
 .pagination > li > a:hover, .pagination > li > a:focus,

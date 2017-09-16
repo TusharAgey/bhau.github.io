@@ -103,6 +103,11 @@
 											    $_SESSION['contact_no'] = $row['phoneNumber'];
 											    $_SESSION['authority'] = $row['authority'];
 											    $_SESSION['Iduser'] = $row['ID'];
+											    if($row['authority'] == 0){
+											    	$_SESSION['projectName'] = $row['projectName'];
+											    	$_SESSION['projectDesc'] = $row['projectDesc'];
+											    	$_SESSION['teamSize'] = $row['teamSize'];
+											    }
 											    header("Location: home.php");
 											    exit();
 											}
