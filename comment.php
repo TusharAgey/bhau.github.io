@@ -3,7 +3,11 @@
 	$authority = $_SESSION['authority'];
 	$user_name = $_SESSION['user_name'];
 	$phone	   = $_SESSION['contact_no'];
-	$uid 	   = $_SESSION['Iduser'];
+	if($authority)
+		$uid = $_POST['user_identification'];
+	else
+		$uid 	   = $_SESSION['Iduser'];
+
 	$comment = $_POST['ucomment'];
 	if($user_name == ""){
 		header("Location: index.html");

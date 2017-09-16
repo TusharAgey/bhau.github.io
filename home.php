@@ -137,8 +137,6 @@
 									echo "</h3>
 
 									<p class=\"line\">";
-
-											$data[3];
 											include_once("sqlsettings.php");
 											$conn = new mysqli($host, $username, $pass, $db);
 											if ($conn->connect_error)
@@ -178,8 +176,58 @@
 								</div>
 							</div>";
 							}
-							{
-								;
+							else {
+								include_once("sqlsettings.php");
+								$conn = new mysqli($host, $username, $pass, $db);
+								if ($conn->connect_error)
+									die("Connection failed: " . $conn->connect_error);
+								$sql = "SELECT * FROM UserTables where authority = 0";
+								$result = $conn->query($sql);
+								while($row = mysqli_fetch_assoc($result)){ //for each project 
+									echo "<div>
+										<div class=\"top-div  color2\">
+											<img src=\"assets/img/default-avatar.png\" class=\"img-circle img-responsive\">
+										</div>
+											</br></br></br></br></br></br>
+											<h3>"; echo "Project name"; //extract project name, project link, contact number and show here
+											echo "</h3><p class=\"line\">";
+											$identity = $row['ID'];
+											$sql = "SELECT * FROM comments_table where user_id = $identity";
+											$resultset = $conn->query($sql);
+											$i = 0;
+											if(mysqli_num_rows($resultset) > 0){
+												while($rowset = mysqli_fetch_assoc($resultset)){
+													if($rowset['is_authority'] == 0){
+														echo "<ul class=\"pagination pagination-primary\"> <li class = \"active\"><a>";
+														echo "Me: ";
+														echo $rowset['comment_it'];
+														echo " </a></li>";
+													}
+													else{
+														echo "<ul class=\"pagination pagination-primary\"> <li class = \"active\"><a>";
+														echo "Mentor: ";
+														echo $rowset['comment_it'];
+														echo " </a></li>";
+													}
+													echo "<br/>";
+												}
+											}
+
+											echo "<br/><br/>
+											<form action=\"comment.php\" method=\"post\">
+												<div class=\"input-group\">
+												<span class=\"input-group-addon\">
+													<i class=\"material-icons\">comment</i>
+												</span>
+												<input type=\"text\" name = \"ucomment\" class=\"form-control\" placeholder=\"Comment...\"></input>
+												</div>
+												<input type = \"hidden\" name = \"user_identification\" value = $identity></input>
+												<button class=\"btn btn-primary\">Comment</button>
+											</form>
+											</p>
+										</div>
+									";
+								} 
 							}
 					?>
 					</div>
