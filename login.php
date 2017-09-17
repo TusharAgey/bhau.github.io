@@ -1,7 +1,5 @@
-<!doctype html>
-<html lang="en">
+<?php session_start();?>
 <head>
-	<meta charset="utf-8" />
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
 	<link rel="icon" type="image/png" href="assets/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -98,7 +96,6 @@
 											$result = $conn->query($sql);
 											if(mysqli_num_rows($result) > 0){
 												$row = mysqli_fetch_assoc($result);
-											    session_start();
 											    $_SESSION['user_name'] = $row['userName'];
 											    $_SESSION['contact_no'] = $row['phoneNumber'];
 											    $_SESSION['authority'] = $row['authority'];
@@ -108,7 +105,7 @@
 											    	$_SESSION['projectDesc'] = $row['projectDesc'];
 											    	$_SESSION['teamSize'] = $row['teamSize'];
 											    }
-											    header("Location: home.php");
+											    echo("<script>location.href = 'home.php';</script>");
 											    exit();
 											}
 											echo "<span class=\"label label-danger\">Please check the credentials</span>";

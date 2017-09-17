@@ -10,11 +10,11 @@
 
 	$comment = $_POST['ucomment'];
 	if($user_name == ""){
-		header("Location: index.html");
+		echo("<script>location.href = 'index.html';</script>");
 		exit();
 	}
 	if($comment == ""){
-		header("Location: home.php");	
+		echo("<script>location.href = 'home.php';</script>");
 		exit();
 	}
 	include_once("sqlsettings.php");
@@ -28,5 +28,5 @@
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conn->error;
 	}
-	header("Location: home.php");				
+	echo("<script>location.href = 'home.php';</script>");			
 ?>
