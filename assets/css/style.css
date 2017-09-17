@@ -2,6 +2,23 @@
 	width : 100%;
 	height : auto;
 	margin : auto;
+	text-align : center;
+}
+
+.float-div-2 {
+	display : inline-block;
+	margin : 0 10px 5px 10px;
+}
+
+.stats-div {
+	min-width:150px;
+}
+
+.float-div-1 {
+	max-width : 180px;
+	height : auto;
+	display : inline-block;
+	margin : 5px 20px;
 }
 
 .float-div {
